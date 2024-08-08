@@ -18,3 +18,7 @@ export interface StudentInfo {
   gpa: number
   image: string
 }
+
+export interface MessageState {
+  message: String
+}
