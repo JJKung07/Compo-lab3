@@ -9,13 +9,12 @@ const totalEvents = ref(0)
 const route = useRoute()
 const router = useRouter()
 const page = ref<number>(parseInt(route.query.page?.toString() || '1'))
-const pageSize = ref<number>(parseInt(route.query.size?.toString() || '2'))
+const pageSize = ref<number>(parseInt(route.query.size?.toString() || '3'))
 const hasNextPage = computed(() => {
   const totalPages = Math.ceil(totalEvents.value / pageSize.value)
   return page.value < totalPages
 })
 watchEffect(() => {
-  events.value = null
   EventService.getEvents(pageSize.value, page.value)
     .then((response) => {
       events.value = response.data
