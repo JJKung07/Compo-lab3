@@ -41,7 +41,7 @@ function updatePageSize(newSize: number) {
     <input type="number" v-model.number="pageSize" @change="updatePageSize(pageSize)" />
   </div>
   <!-- new element -->
-  <div class="events">
+  <div class="flex flex-col items-center">
     <EventCard v-for="event in events" :key="event.id" :event="event" />
     <EventCategory v-for="event in events" :key="`cat-org-${event.id}`" :event="event" />
     <div class="pagination">
@@ -64,12 +64,6 @@ function updatePageSize(newSize: number) {
 </template>
 
 <style scoped>
-.events {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
 .pagination {
   display: flex;
   width: 290px;
