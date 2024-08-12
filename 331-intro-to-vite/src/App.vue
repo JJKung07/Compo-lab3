@@ -19,40 +19,21 @@ function updatePageSize() {
 </script>
 
 <template>
-  <div id="text-center font-sans text-gray-700 antialias">
+  <div class="text-center font-sans text-gray-700 antialias">
     <header>
       <div id="flashMessage" class="animate-fade" v-if="message">
         <h4>{{ message }}</h4>
       </div>
       <div class="wrapper">
-        <nav class="py-6">
+        <nav class="py-6 pl-6">
           <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{ name: 'event-list-view', query: { page: 1, size: pageSize } }"
             >Event</RouterLink
           >
-          | <RouterLink class="font-bold text-gray-700" exact-active-class="tex-green-500" :to="{ name: 'about' }">About</RouterLink> |
-          <RouterLink class="font-bold text-gray-700" exact-active-class="tex-green-500" :to="{ name: 'student' }">Student</RouterLink>
+          | <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{ name: 'about' }">About</RouterLink> |
+          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{ name: 'student' }">Student</RouterLink>
         </nav>
       </div>
     </header>
     <RouterView />
   </div>
 </template>
-
-<style>
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-</style>

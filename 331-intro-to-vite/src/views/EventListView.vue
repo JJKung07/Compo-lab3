@@ -35,26 +35,27 @@ function updatePageSize(newSize: number) {
 </script>
 
 <template>
-  
   <div class="flex flex-col items-center">
     <h1>Events For Good</h1>
-    Page size:
+    <div class="m-2">
+      Page size:
     <input type="number" v-model.number="pageSize" @change="updatePageSize(pageSize)" />
+    </div>
   </div>
   <!-- new element -->
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center m-2">
     <EventCard v-for="event in events" :key="event.id" :event="event" />
     <EventCategory v-for="event in events" :key="`cat-org-${event.id}`" :event="event" />
-    <div class="pagination">
+    <div class="flex w-[290px]">
       <RouterLink
-        id="page-prev"
+        class="flex-1 text-left text-[#2c3e50] no-underline"
         :to="{ name: 'event-list-view', query: { page: page - 1, size: pageSize } }"
         rel="prev"
         v-if="page != 1"
         >&#60; Prev Page</RouterLink
       >
       <RouterLink
-        id="page-next"
+        class="flex-1 text-right text-[#2c3e50] no-underline"
         :to="{ name: 'event-list-view', query: { page: page + 1, size: pageSize } }"
         rel="next"
         v-if="hasNextPage"
@@ -63,21 +64,3 @@ function updatePageSize(newSize: number) {
     </div>
   </div>
 </template>
-
-<style scoped>
-.pagination {
-  display: flex;
-  width: 290px;
-}
-.pagination a {
-  flex: 1;
-  text-decoration: none;
-  color: #2c3e50;
-}
-#page-prev {
-  text-align: left;
-}
-#page-next {
-  text-align: right;
-}
-</style>

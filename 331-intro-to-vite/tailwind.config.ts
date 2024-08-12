@@ -23,7 +23,6 @@ export default {
           '100%': { backgroundColor: 'transparent' }
         }
       }
-
     }
   },
   plugins: [],
