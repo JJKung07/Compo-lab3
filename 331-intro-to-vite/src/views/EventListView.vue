@@ -35,8 +35,9 @@ function updatePageSize(newSize: number) {
 </script>
 
 <template>
-  <h1>Events For Good</h1>
-  <div class="events">
+  
+  <div class="flex flex-col items-center">
+    <h1>Events For Good</h1>
     Page size:
     <input type="number" v-model.number="pageSize" @change="updatePageSize(pageSize)" />
   </div>
